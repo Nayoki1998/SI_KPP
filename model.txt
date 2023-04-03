@@ -1,0 +1,15 @@
+*Kerjasama
+	- id
+	- perihal varchar(100)
+	- no_surat_pihak1	varchar(100)
+	- no_surat_pihak2 varchar(100)
+	- tgl_surat date
+	- pic_1 varchar(100)
+	- pic_2 varchar(100)
+	- file
+*user
+	- id
+	- nama_user
+	- jabatan
+	- tipe
+	
