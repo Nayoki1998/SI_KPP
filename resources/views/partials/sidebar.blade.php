@@ -27,6 +27,13 @@
 						<div class="menu-title">Kerjasama</div>
 					</a>
 				</li>
+				<li>
+					<a href="{{ route('user.index') }}" >
+						<div class="parent-icon"><i class="bx bx-folder"></i>
+						</div>
+						<div class="menu-title">Pengguna</div>
+					</a>
+				</li>
 
 
 
