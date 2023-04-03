@@ -13,7 +13,7 @@
 								<div class="card-body">
 									<div class="d-flex align-items-center">
 										<div>
-											<p class="mb-0 text-white">SI KPP</p>
+											<p class="mb-0 text-white">Kerja Sama</p>
 											<h4 class="my-1 text-white">Login</h4>
 										</div>
 										<div class="text-white ms-auto font-35"><i class="bx bx-exit"></i>
@@ -29,7 +29,7 @@
 							<div class="card-body">
 								<div class="d-flex align-items-center">
 									<div>
-										<p class="mb-0 text-white">Total Income</p>
+										<p class="mb-0 text-white">Penelitian</p>
 										<h4 class="my-1 text-white">$89,245</h4>
 									</div>
 									<div class="text-white ms-auto font-35"><i class="bx bx-dollar"></i>
@@ -44,7 +44,7 @@
 							<div class="card-body">
 								<div class="d-flex align-items-center">
 									<div>
-										<p class="mb-0 text-dark">Total Users</p>
+										<p class="mb-0 text-dark">Pengabdian</p>
 										<h4 class="text-dark my-1">24.5K</h4>
 									</div>
 									<div class="text-dark ms-auto font-35"><i class="bx bx-user-pin"></i>
