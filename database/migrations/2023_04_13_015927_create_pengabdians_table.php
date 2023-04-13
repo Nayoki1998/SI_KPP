@@ -15,6 +15,8 @@ class CreatePengabdiansTable extends Migration
     {
         Schema::create('pengabdians', function (Blueprint $table) {
             $table->id();
+            $table->string('perihal', 100)->default('text');
+            $table->text('berkas');
             $table->timestamps();
         });
     }

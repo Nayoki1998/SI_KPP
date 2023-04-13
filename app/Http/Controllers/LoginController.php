@@ -68,7 +68,7 @@ class LoginController extends Controller
         //     // dd($checkData);
         // }
         
-        return redirect('login')->withSuccess('Login details are not valid');
+        return redirect('login')->withErrors('Login details are not valid');
 
     }
     

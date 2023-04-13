@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Penelitian extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'perihal',
+        'berkas'
+    ];
+    public $timestamps = true;
 }

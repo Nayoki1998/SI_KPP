@@ -5,82 +5,107 @@ namespace App\Http\Controllers;
 use App\Models\Penelitian;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DB;
+use File;
 
 class PenelitianController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function validateForm($req){
+        $req->validate([
+            'perihal'=> 'required',
+            'berkas' => 'required|mimes:pdf',
+        ]);
+    }
+    public function findId($id){
+        $find = Penelitian::find($id);
+        return $find;
+    }
+
     public function index()
     {
         //
+        // dd('test');
+        return view('penelitian.index', ['data' => Penelitian::all()]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         //
+
+        return view('penelitian.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
+        // dd($request);
+        $this->validateForm($request);
+
+        $input = $request->except(['_token']);
+        // dd($input);
+        if($request->hasfile('berkas')){
+            $fileName = date("d_m_Y").'_'.$request->berkas->getClientOriginalName();
+            $request->berkas->move(public_path('penelitian'), $fileName);
+            $input['berkas'] = $fileName;
+        }
+
+        $kerjasama = Penelitian::create($input);
+        return redirect()->route('pen.index')->with('success','Data Penelitian telah tersimpan!!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Penelitian  $penelitian
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show(Penelitian $penelitian)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Penelitian  $penelitian
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Penelitian $penelitian)
+   
+    public function edit($id)
     {
         //
+        return view('penelitian.edit', ['data' => $this->findId($id)]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Penelitian  $penelitian
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Penelitian $penelitian)
+    
+    public function update(Request $request, $id)
     {
-        //
+        $oldData = $this->findId($id);
+        $input = $request->except(['_token', '_method']);
+        if($request->berkas == null){
+            // dd($request);
+            $this->validate($request, [
+                'perihal'=> 'required',
+            ]);
+            // dd($input);
+            $updateData = Penelitian::where('id', $id)->update($input);
+            return redirect()->route('pen.index')->with('success','Data Penelitian telah diperbaharui!!');
+
+        }else{
+            // dd($input);
+
+            $this->validateForm($request);
+            if(is_file($request->berkas)){
+                $fileName = date("d_F_Y").'_'.$request->berkas->getClientOriginalName();
+                $request->berkas->move(public_path('berkas'), $fileName);
+                $input['berkas'] = $fileName;
+                File::delete(public_path('penelitian/'.$oldData->berkas));
+
+                $updateData = Penelitian::where('id', $id)->update($input);
+                return redirect()->route('pen.index')->with('success','Data Penelitian telah diperbaharui!!');
+
+
+            }
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Penelitian  $penelitian
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Penelitian $penelitian)
+ 
+    public function destroy($id)
     {
         //
+        File::delete(public_path('penelitian/'.$this->findId($id)->berkas));
+        $data = DB::table('penelitians')->where('id',$id)->delete();
+        return redirect()->route('pen.index')->with('deleted','Data Penelitian terhapus!!');
     }
 }

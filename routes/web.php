@@ -7,7 +7,9 @@ use App\Http\Controllers\{
     KerjaSamaController,
     DashboardController,
     LoginController,
-    UserController
+    UserController,
+    PenelitianController,
+    PengabdianController
 };
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,8 @@ Route::middleware(['auth'])->group(function () {
     });
     Route::resource('kerjasama', KerjaSamaController::class);
     Route::resource('dashboard', DashboardController::class); 
+    Route::resource('pen', PenelitianController::class); 
+    Route::resource('peng', PengabdianController::class); 
 });
 
 Route::resource('kerjasama', KerjaSamaController::class);

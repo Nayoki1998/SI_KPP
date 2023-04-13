@@ -11,7 +11,7 @@
 			</div>
 			<!--navigation-->
 			<ul class="metismenu" id="menu">
-				<li>
+				<li class="{{ (request()->is('dashboard')) ? 'mm-active' : '' }}">
 					<a href="/dashboard" >
 						<div class="parent-icon"><i class='bx bx-home-circle'></i>
 						</div>
@@ -20,29 +20,29 @@
 				</li>
 
 				<li class="menu-label">SI KPP</li>
-				<li>
+				<li class="{{ (request()->is('kerjasama')) ? 'mm-active' : '' }}">
 					<a href="{{ route('kerjasama.index') }}" >
 						<div class="parent-icon"><i class="bx bx-folder"></i>
 						</div>
 						<div class="menu-title">Kerjasama</div>
 					</a>
 				</li>
-				<li>
+				<li class="{{ (request()->is('user')) ? 'mm-active' : '' }}">
 					<a href="{{ route('user.index') }}" >
 						<div class="parent-icon"><i class="bx bx-folder"></i>
 						</div>
 						<div class="menu-title">Pengguna</div>
 					</a>
 				</li>
-				<li>
-					<a href="{{ route('penelitian.index') }}" >
+				<li class="{{ (request()->is('pen')) ? 'mm-active' : '' }}">
+					<a href="{{ route('pen.index') }}" >
 						<div class="parent-icon"><i class="bx bx-folder"></i>
 						</div>
 						<div class="menu-title">Penelitian</div>
 					</a>
 				</li>
-				<li>
-					<a href="{{ route('pengabdian.index') }}" >
+				<li class="{{ (request()->is('peng')) ? 'mm-active' : '' }}">
+					<a href="{{ route('peng.index') }}" >
 						<div class="parent-icon"><i class="bx bx-folder"></i>
 						</div>
 						<div class="menu-title">Pengabdian</div>
@@ -60,14 +60,14 @@
 					</a>
 				</li>
 
-				<li class="menu-label">Masuk Aplikasi</li>
+				{{-- <li class="menu-label">Masuk Aplikasi</li>
 				<li>
 					<a href="#" >
 						<div class="parent-icon"><i class="fadeIn animated bx bx-log-in"></i>
 						</div>
 						<div class="menu-title">Masuk</div>
 					</a>
-				</li>
+				</li> --}}
 				{{-- <li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class='bx bx-home-circle'></i>
