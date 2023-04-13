@@ -48,3 +48,4 @@
 	
 	<!--app JS-->
 	<script src="{{ asset ('../rukada/vertical/assets/js/app.js') }}"></script>
+	

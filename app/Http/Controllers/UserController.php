@@ -12,13 +12,10 @@ class UserController extends Controller
   
     public function validateForm($req){
         $req->validate([
-            'perihal'=> 'required',
-            'no_surat_pihak1'=>'required',
-            'no_surat_pihak2'=>'required',
-            'tgl_surat'=>'required',
-            'pic_1' => 'required',
-            'pic_2' => 'required',
-            'berkas' => 'required|mimes:pdf',
+            'nama_user'=> 'required|unique:users,nama_user',
+            'jabatan'=>'required',
+            'password'=>'required',
+            'tipe_user'=>'required',
         ]);
     }
     public function findId($id){
@@ -47,13 +44,9 @@ class UserController extends Controller
         $this->validateForm($request);
 
         $input = $request->except(['_token']);
+        $input['password'] = bcrypt($input['password']);
+        
         // dd($input);
-        if($request->hasfile('berkas')){
-            $fileName = date("d_m_Y").'_'.$request->berkas->getClientOriginalName();
-            $request->berkas->move(public_path('berkas'), $fileName);
-            $input['berkas'] = $fileName;
-        }
-
         $user = User::create($input);
         return redirect()->route('user.index')->with('success','Data Kerja Sama telah tersimpan!!');
 
@@ -114,8 +107,8 @@ class UserController extends Controller
     {
         //
         // dd($id);
-        File::delete(public_path('berkas/'.$this->findId($id)->berkas));
-        $data = DB::table('kerja_samas')->where('id',$id)->delete();
+        // File::delete(public_path('berkas/'.$this->findId($id)->berkas));
+        $data = User::destroy($id);
         return redirect()->route('user.index')->with('deleted','Data Kerja Sama terhapus!!');
         
     }

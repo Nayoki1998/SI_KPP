@@ -82,7 +82,7 @@
 									
 								</tbody>
 								<tfoot>
-									<tr>
+								<tr>
 										<th>No</th>
 										<th>Nama Pengguna</th>
 										<th>Jabatan </th>

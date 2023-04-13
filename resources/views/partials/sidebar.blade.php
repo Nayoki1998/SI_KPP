@@ -34,6 +34,20 @@
 						<div class="menu-title">Pengguna</div>
 					</a>
 				</li>
+				<li>
+					<a href="{{ route('penelitian.index') }}" >
+						<div class="parent-icon"><i class="bx bx-folder"></i>
+						</div>
+						<div class="menu-title">Penelitian</div>
+					</a>
+				</li>
+				<li>
+					<a href="{{ route('pengabdian.index') }}" >
+						<div class="parent-icon"><i class="bx bx-folder"></i>
+						</div>
+						<div class="menu-title">Pengabdian</div>
+					</a>
+				</li>
 
 
 

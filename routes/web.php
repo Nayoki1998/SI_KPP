@@ -20,15 +20,16 @@ use App\Http\Controllers\{
 |
 */
 
-Route::get('/', function () {
-    return view('partials.layouts');
-});
+
 Route::get('/blumjadi', function () {
     return view('errors.comming-soon');
 });
 
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('partials.layouts');
+    });
     Route::resource('kerjasama', KerjaSamaController::class);
     Route::resource('dashboard', DashboardController::class); 
 });
@@ -37,5 +38,5 @@ Route::resource('kerjasama', KerjaSamaController::class);
 Route::resource('dashboard', DashboardController::class);
 Route::resource('user', UserController::class);
 
-Route::get('login', [LoginController::class, 'viewLogin']);
+Route::get('login', [LoginController::class, 'viewLogin'])->name('login');
 Route::post('login-post', [LoginController::class, 'postLogin'])->name('login.post-login');
