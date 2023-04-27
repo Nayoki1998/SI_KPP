@@ -27,13 +27,15 @@
 						<div class="menu-title">Kerjasama</div>
 					</a>
 				</li>
-				<li class="{{ (request()->is('user')) ? 'mm-active' : '' }}">
-					<a href="{{ route('user.index') }}" >
-						<div class="parent-icon"><i class="bx bx-folder"></i>
-						</div>
-						<div class="menu-title">Pengguna</div>
-					</a>
-				</li>
+				@if (Auth::user()->tipe_user == 'SuperAdmin')
+					<li class="{{ (request()->is('user')) ? 'mm-active' : '' }}">
+						<a href="{{ route('user.index') }}" >
+							<div class="parent-icon"><i class="bx bx-folder"></i>
+							</div>
+							<div class="menu-title">Pengguna</div>
+						</a>
+					</li>
+				@endif
 				<li class="{{ (request()->is('pen')) ? 'mm-active' : '' }}">
 					<a href="{{ route('pen.index') }}" >
 						<div class="parent-icon"><i class="bx bx-folder"></i>
@@ -51,14 +53,7 @@
 
 
 
-				<li class="menu-label">Keluar Aplikasi</li>
-				<li>
-					<a href="#" >
-						<div class="parent-icon"><i class="fadeIn animated bx bx-log-out"></i>
-						</div>
-						<div class="menu-title">Keluar</div>
-					</a>
-				</li>
+				
 
 				{{-- <li class="menu-label">Masuk Aplikasi</li>
 				<li>

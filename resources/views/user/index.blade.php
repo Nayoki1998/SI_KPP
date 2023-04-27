@@ -60,18 +60,15 @@
 												<form action="{{ route('user.destroy', $item->id) }}" method="post">
 													@csrf
 													@method('delete')
-													<a id="berkasId" href="{{ route('user.edit', $item->id) }}" class="btn btn-warning">
+													{{-- <a id="berkasId" href="{{ route('user.edit', $item->id) }}" class="btn btn-warning">
 														<i class="bx bx-edit me-0"></i>
-													</a>
+													</a> --}}
 													{{-- <iframe height="200" width="300" src="{{asset('berkas/'.$item->berkas)}}" frameborder="0"></iframe> --}}
 													<button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin untuk menghapus data ini?')">
 														<i class="bx bx-trash-alt me-0"></i>
 													</button>
 												</form>
 
-											</td>
-											<td>
-												
 											</td>
 										</tr>
 									@empty

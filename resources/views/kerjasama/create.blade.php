@@ -45,6 +45,23 @@
                     @error('perihal')
                           <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
+
+                    <div class="row mb-3">
+                      <label for="inputEmailAddress2" class="col-sm-3 col-form-label">Kategori Kerjasama</label>
+                      <div class="col-sm-9">
+                        <select class="form-select mb-3" class="form-control @error('kategori') is-invalid @enderror " name="kategori" aria-label="Default select example">
+                          <option selected disabled>Klik untuk memilih kategori kerjasama</option>
+                          <option value="MOU">MOU</option>
+                          <option value="MOA">MOA</option>
+                          <option value="IA">IA</option>
+                          {{-- <option value="Dosen">Dosen</option> --}}
+                        </select>
+                      </div>
+                    </div>
+                    @error('kategori')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+
                     <div class="row mb-3">
                       <label for="inputPhoneNo2" class="col-sm-3 col-form-label">Nomor Surat Pihak 1</label>
                       <div class="col-sm-9">

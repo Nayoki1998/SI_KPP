@@ -14,7 +14,7 @@
 									<div class="d-flex align-items-center">
 										<div>
 											<p class="mb-0 text-white">Kerja Sama</p>
-											<h4 class="my-1 text-white">Login</h4>
+											<h4 class="my-1 text-white">{{$tKj}}</h4>
 										</div>
 										<div class="text-white ms-auto font-35"><i class="bx bx-exit"></i>
 										</div>
@@ -30,9 +30,9 @@
 								<div class="d-flex align-items-center">
 									<div>
 										<p class="mb-0 text-white">Penelitian</p>
-										<h4 class="my-1 text-white">$89,245</h4>
+										<h4 class="my-1 text-white">{{$tPn}}</h4>
 									</div>
-									<div class="text-white ms-auto font-35"><i class="bx bx-dollar"></i>
+									<div class="text-dark ms-auto font-35"><i class="bx bx-user-pin"></i>
 									</div>
 								</div>
 							</div>
@@ -45,7 +45,7 @@
 								<div class="d-flex align-items-center">
 									<div>
 										<p class="mb-0 text-dark">Pengabdian</p>
-										<h4 class="text-dark my-1">24.5K</h4>
+										<h4 class="text-dark my-1">{{$tPng}}</h4>
 									</div>
 									<div class="text-dark ms-auto font-35"><i class="bx bx-user-pin"></i>
 									</div>
@@ -53,20 +53,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col">
-						<div class="card radius-10 bg-gradient-moonlit">
-							<div class="card-body">
-								<div class="d-flex align-items-center">
-									<div>
-										<p class="mb-0 text-white">Comments</p>
-										<h4 class="my-1 text-white">8569</h4>
-									</div>
-									<div class="text-white ms-auto font-35"><i class="bx bx-comment-detail"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					
 					
 				</div>
 				
