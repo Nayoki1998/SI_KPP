@@ -9,7 +9,8 @@ use App\Http\Controllers\{
     LoginController,
     UserController,
     PenelitianController,
-    PengabdianController
+    PengabdianController,
+    DosenController
 };
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::resource('kerjasama', KerjaSamaController::class);
 Route::resource('dashboard', DashboardController::class);
+Route::resource('dosen', DosenController::class);
 Route::resource('user', UserController::class);
 
 Route::get('login', [LoginController::class, 'viewLogin'])->name('login');

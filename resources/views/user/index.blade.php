@@ -70,9 +70,6 @@
 												</form>
 
 											</td>
-											<td>
-												
-											</td>
 										</tr>
 									@empty
 										<tr>

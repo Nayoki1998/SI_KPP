@@ -6,13 +6,13 @@
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Kerjsa Sama</div>
+					<div class="breadcrumb-title pe-3">Dosen</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Kerja Sama</li>
+								<li class="breadcrumb-item active" aria-current="page">Dosen</li>
 							</ol>
 						</nav>
 					</div>
@@ -20,8 +20,8 @@
 				</div>
 				<!--end breadcrumb-->
 				<div style="display: flex; justify-content: space-between">
-					<h6 class="mb-0 text-uppercase">Datatable Kerja Sama</h6>
-					<a href="{{ route('kerjasama.create') }}" class="btn btn-success px-2" style="justify-content: space-between ">
+					<h6 class="mb-0 text-uppercase">Datatable Dosen</h6>
+					<a href="{{ route('user.create') }}" class="btn btn-success px-2" style="justify-content: space-between ">
 						<i class="bx bx-folder-plus me-1"></i>
 						Tambah Data
 					</a>
@@ -37,11 +37,8 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Perihal</th>
-										<th>No Surat Pihak </th>
-										<th>Tanggal Surat</th>
-										<th>Penanggung Jawab</th>
-										<th>Berkas</th>
+										<th>Nama Dosen</th>
+										<th>Kata Sandi </th>
 										<th>Opsi</th>
 									</tr>
 								</thead>
@@ -51,29 +48,18 @@
 									@endphp
 									@forelse ($data as $item)
 										<tr>
-											<td>{{ $no+=1 }}</td>
-											<td>{{ $item->perihal }}</td>
+											<td>{{ $loop->iteration }}</td>
+											<td>{{ $item->nama_user }}</td>
 											<td>
-													Pihak 1 : {{ $item->no_surat_pihak1 }} <br>
-													Pihak 2 : {{ $item->no_surat_pihak2 }}
+													{{ $item->jabatan }} 
 											</td>
-											<td>{{ $item->tgl_surat }}</td>
+											<td>{{ $item->tipe_user }}</td>
+											
 											<td>
-													Pihak 1 : {{ $item->pic_1 }} <br>
-													Pihak 2 : {{ $item->pic_2 }}
-											</td>
-											<td>
-												<a type="button" href="{{ asset('berkas/'.$item->berkas) }}" class="btn btn-info px-5" download="berkas_kerjasama">
-													<i class="bx bx-cloud-download me-1"></i>
-														{{ $item->berkas }}
-												</a>
-												
-											</td>
-											<td>
-												<form action="{{ route('kerjasama.destroy', $item->id) }}" method="post">
+												<form action="{{ route('user.destroy', $item->id) }}" method="post">
 													@csrf
 													@method('delete')
-													<a id="berkasId" href="{{ route('kerjasama.edit', $item->id) }}" class="btn btn-warning">
+													<a id="berkasId" href="{{ route('user.edit', $item->id) }}" class="btn btn-warning">
 														<i class="bx bx-edit me-0"></i>
 													</a>
 													{{-- <iframe height="200" width="300" src="{{asset('berkas/'.$item->berkas)}}" frameborder="0"></iframe> --}}
@@ -82,6 +68,9 @@
 													</button>
 												</form>
 
+											</td>
+											<td>
+												
 											</td>
 										</tr>
 									@empty
@@ -92,13 +81,10 @@
 									
 								</tbody>
 								<tfoot>
-									<tr>
+								<tr>
 										<th>No</th>
-										<th>Perihal</th>
-										<th>No Surat Pihak </th>
-										<th>Tanggal Surat</th>
-										<th>Penanggung Jawab</th>
-										<th>Berkas</th>
+										<th>Nama Dosen</th>
+										<th>Kata Sandi </th>
 										<th>Opsi</th>
 									</tr>
 								</tfoot>
