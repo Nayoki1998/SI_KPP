@@ -31,18 +31,16 @@ Route::get('/blumjadi', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
-        return view('partials.layouts');
+        return redirect('/dasbhoard');
     });
     Route::resource('kerjasama', KerjaSamaController::class);
     Route::resource('dashboard', DashboardController::class); 
+    Route::resource('user', UserController::class); 
     Route::resource('pen', PenelitianController::class); 
     Route::resource('peng', PengabdianController::class); 
 });
 
-Route::resource('kerjasama', KerjaSamaController::class);
-Route::resource('dashboard', DashboardController::class);
-Route::resource('dosen', DosenController::class);
-Route::resource('user', UserController::class);
 
 Route::get('login', [LoginController::class, 'viewLogin'])->name('login');
 Route::post('login-post', [LoginController::class, 'postLogin'])->name('login.post-login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout.post');

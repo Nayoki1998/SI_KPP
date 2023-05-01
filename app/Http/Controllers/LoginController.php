@@ -16,6 +16,16 @@ class LoginController extends Controller
     public function viewLogin(){
         return view('login');
     }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+ 
+        request()->session()->invalidate();
+ 
+        request()->session()->regenerateToken();
+ 
+        return redirect('/login');
+    }
 
      public function postLogin(Request $request){
         // dd($request);
@@ -30,7 +40,7 @@ class LoginController extends Controller
             
             if(Auth::attempt($credentials)){
                 // dd($credentials);
-                return redirect()->intended('/')->withSuccess('Signed In');
+                return redirect()->intended('/dashboard')->withSuccess('Signed In');
             }
         }
         if($request->tipe == 'Admin'){
@@ -38,7 +48,7 @@ class LoginController extends Controller
             
             if(Auth::attempt($credentials)){
                 // dd($credentials);
-                return redirect()->intended('/')->withSuccess('Signed In');
+                return redirect()->intended('/dashboard')->withSuccess('Signed In');
             }
         }
         if($request->tipe == 'Dosen'){
@@ -46,7 +56,7 @@ class LoginController extends Controller
             
             if(Auth::attempt($credentials)){
                 // dd($credentials);
-                return redirect()->intended('/')->withSuccess('Signed In');
+                return redirect()->intended('/dashboard')->withSuccess('Signed In');
             }
         }
 

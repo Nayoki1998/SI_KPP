@@ -11,6 +11,7 @@ class KerjaSama extends Model
     
     protected $fillable = [
         'perihal',
+        'kategori',
         'no_surat_pihak1',
         'no_surat_pihak2',
         'tgl_surat',

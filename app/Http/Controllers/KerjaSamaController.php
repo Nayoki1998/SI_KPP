@@ -13,6 +13,7 @@ class KerjaSamaController extends Controller
     public function validateForm($req){
         $req->validate([
             'perihal'=> 'required',
+            'kategori'=> 'required',
             'no_surat_pihak1'=>'required',
             'no_surat_pihak2'=>'required',
             'tgl_surat'=>'required',
@@ -80,6 +81,7 @@ class KerjaSamaController extends Controller
         if($request->berkas == null){
             $this->validate($request, [
                 'perihal'=> 'required',
+                'kerjasama'=> 'required',
                 'no_surat_pihak1'=>'required',
                 'no_surat_pihak2'=>'required',
                 'tgl_surat'=>'required',

@@ -64,7 +64,7 @@
                           <option selected="">Tipe User</option>
                           <option value="SuperAdmin">Super Admin</option>
                           <option value="Admin">Admin</option>
-                          <option value="Dosen">Dosen</option>
+                          {{-- <option value="Dosen">Dosen</option> --}}
                         </select>
                       </div>
 											<div class="col-12">

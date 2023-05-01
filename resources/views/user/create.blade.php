@@ -76,7 +76,7 @@
                           <option selected disabled>Klik untuk memilih tipe pengguna</option>
                           <option value="SuperAdmin">Super Admin</option>
                           <option value="Admin">Admin</option>
-                          <option value="Dosen">Dosen</option>
+                          {{-- <option value="Dosen">Dosen</option> --}}
                         </select>
                       </div>
                     </div>

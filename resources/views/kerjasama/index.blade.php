@@ -38,6 +38,7 @@
 									<tr>
 										<th>No</th>
 										<th>Perihal</th>
+										<th>Kategori</th>
 										<th>No Surat Pihak </th>
 										<th>Tanggal Surat</th>
 										<th>Penanggung Jawab</th>
@@ -53,6 +54,7 @@
 										<tr>
 											<td>{{ $no+=1 }}</td>
 											<td>{{ $item->perihal }}</td>
+											<td>{{ $item->kategori }}</td>
 											<td>
 													Pihak 1 : {{ $item->no_surat_pihak1 }} <br>
 													Pihak 2 : {{ $item->no_surat_pihak2 }}
