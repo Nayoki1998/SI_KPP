@@ -9,7 +9,8 @@ use App\Http\Controllers\{
     LoginController,
     UserController,
     PenelitianController,
-    PengabdianController
+    PengabdianController,
+    DosenController
 };
 /*
 |--------------------------------------------------------------------------

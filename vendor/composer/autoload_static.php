@@ -508,6 +508,7 @@ class ComposerStaticInit98673a26f88ca785418b11004cdcd547
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Dosen' => __DIR__ . '/../..' . '/app/Models/Dosen.php',
         'App\\Models\\KerjaSama' => __DIR__ . '/../..' . '/app/Models/KerjaSama.php',
         'App\\Models\\Penelitian' => __DIR__ . '/../..' . '/app/Models/Penelitian.php',
         'App\\Models\\Pengabdian' => __DIR__ . '/../..' . '/app/Models/Pengabdian.php',

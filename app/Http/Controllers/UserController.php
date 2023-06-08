@@ -64,6 +64,7 @@ class UserController extends Controller
         return view('user.edit', ['data' => $this->findId($id)]);
     }
 
+
     public function update(Request $request, $id)
     {
         //
